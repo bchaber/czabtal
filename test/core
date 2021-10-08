@@ -1,0 +1,24 @@
+gateDef AND a b
+begin
+	return a and b
+end
+
+gateDef OR a b
+begin
+	return a or b
+end
+
+gateDef XOR a b
+begin
+	return not a is b
+end
+
+gateDef NAND a b
+begin
+	return not a and b
+end
+
+gateDef NOT a
+begin
+	return not a
+end

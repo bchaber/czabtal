@@ -1,0 +1,28 @@
+import core
+import two
+import three
+
+logical a as true
+logical b as true
+logical c as false
+
+gateDef AND a b args
+begin
+	forargs l
+	begin
+		if l is false
+			return false
+		endif
+	end
+	return AND on a b
+end
+
+gate A as AND
+gate X as XOR
+gate N as NOT
+
+logical n as N on a
+logical x as X on a b
+logical ret as A on n b
+print ret
+print A on a b a

@@ -1,0 +1,7 @@
+import four
+
+gateDef TWO a b
+begin
+	return b and not a
+end
+

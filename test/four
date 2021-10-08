@@ -1,0 +1,2 @@
+logical fourloaded as true
+print fourloaded

@@ -1,0 +1,117 @@
+Czabtal <-
+Czasem zabawnie atrakcyjny bramkowy translator analizy logicznej
+-----------------------------
+import pliczek.bramka
+
+gateDef AND a b args
+begin
+	logical ret as a and b
+	forargs l
+	begin
+		ret as ret and l
+	end
+	return ret
+end
+
+gateDef OR a b args
+begin
+	logical ret as a or b
+	forargs l
+	begin
+		ret as ret or l
+	end
+	return ret
+end
+
+gateDef NOR a b args
+begin
+	logical ret as a or b
+	forargs l
+	begin
+		ret as ret or l
+	end
+	return not ret
+end
+
+gateDef XOR a b 
+begin
+	logical tone as a and not b
+	logical ttwo as not a and b
+	logical ret as tone or ttwo
+	return ret
+end
+
+gateDef NOT a
+begin
+	return not a
+end
+
+gateDef DESTROYER args
+begin
+	return false
+end
+
+gateDef TESTER a b
+begin
+	if a is true and b is false
+		return a
+	else
+		return b
+	endif
+end
+
+gate A as AND
+gate B
+B as TESTER
+gate C as NOT
+
+logical a 
+a as true
+logical b as false
+logical c as false
+
+logical z as A on a b c
+logical x as B on a z
+// logical x as B on a z c <- BLAD
+logical y as C on z
+logical w as DESTROYER on a b c z x y
+print w is false 
+
+logical cZABTAL <- OK
+logical CZABTAL <- NOT OK
+logical czabtal <- OK
+gate CZABTAL <- OK
+gate cZaBTAL <- NOT OK
+gate czabtal <- NOT OK
+
+
+---------------------------------------
+- import w momencie napotkania
+- wywolanie wszystkich komend nie zawartych w gateDef po kolei
+- gateDef ma input 1..*
+- \n to ;
+- args dzia³a jak **kwargs w Python
+---------------------------------------
+Operacje logical:
+and, not, or, is
+---------------------------------------
+Slowa kluczowe:
+gateDef -> definicja "procedury" bramki
+args -> dowolna liczba argumentow (musi byc ostatnie)
+forargs -> iteracja po args
+return -> zwrocenie z bramki
+if ->
+elseif ->
+else ->
+begin ->
+end ->
+import ->
+as ->
+on -> wywolanie "procedury" bramki
+true ->
+false ->
+print -> drukuje LOGICAL
+
+TYPY ZMIENNYCH:
+logical -> bool (tylko z duzych liter)
+gate -> bramka (tylko z duzych liter)
